@@ -7,8 +7,9 @@ guest_num <- 8
 guest_chip <- 0.4
 
 # lab step #7 calculate the expected amount of leftover chips
-chips_leftover <- chips_num - guess_num * guest_chip - 0.4
-
+chip_you <- 0.4 # you also consume 0.4 bag of chip
+chips_leftover <- chips_num - guest_num * guest_chip - chip_you
+chips_leftover
 
 #lab step #8 make 4 vectors, one for each person containing their ranking
 Self <- c(7, 9, 8, 1, 2, 3, 4, 6, 5)
@@ -83,6 +84,10 @@ mydf_1[2, 3] <- lenny_II
 lenny_V <- 5
 mydf_1[5, 3] <- lenny_V
 
+####line 81 and 84 are magic number, try not to use them.
+### instead use indexing on the original data to obtain them
+
+
 # lab step#24 use names rather than indexes to access elements
 myMat["III", "Penny"]
 mydf_1["III", "Penny"]
@@ -95,6 +100,8 @@ mydf_1["II", "Lenny"] <- Lenny_II_2
 
 Lenny_V_2 <- 8
 mydf_1["V", "Lenny"] <- Lenny_V_2
+### see comment above magic numbers
+
 
 #lab step#26 re-do the switch from step 23 using $ to access the elements
 Lenny_II_3 <- 8
@@ -103,5 +110,5 @@ mydf_1$Lenny[2] <- Lenny_II_3
 Lenny_V_3 <- 5
 mydf_1$Lenny[5] <- Lenny_V_3
 
-
+### See comment above about magic numbers
 
