@@ -1,1 +1,1 @@
-This repository will be used to turn in all the homework for EBIO4420 class Spring 2020.
+This repository will be used to turn in all the homework for EBIO4420 Computational Biology class Spring 2020 at CU Boulder. This repository includes all the labs for each week in this semester, each lab folder contains its homework. 
