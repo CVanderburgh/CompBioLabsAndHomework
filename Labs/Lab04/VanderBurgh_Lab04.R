@@ -65,8 +65,7 @@ Vec_2
 n <- 18 # length of vector
 myVec <- rep(1, n) 
 for(i in 2:n) {
-  tmp <- 1 + 2 * myVec[i - 1] #create a temp valuable to store the value
-  myVec[i] <- tmp #put the temp value into myVec in its position
+  myVec[i]  <- 1 + 2 * myVec[i - 1] 
 }
 myVec
 
@@ -77,22 +76,18 @@ n <- 18
 VecTmp <- rep(1, n) #create a temporary vector that has 18 ones
 Vec <- c(0, 1, VecTmp) #crete a vector that hold 20 numbers, the first two are the first two Fibonacci numbers
 for(i in 3:20) {
-  tmp <- Vec[i - 2] + Vec[i - 1] #create a temporary valuable to store the value for each loop
-  Vec[i] <- tmp #assign the values into Vector in each position, starting at postion 3rd.
+  Vec[i] <- Vec[i - 2] + Vec[i - 1] 
 }
 Vec
 
 #7. Redo question 4 and make a plot of the results.
-Pre_AbundanceOfPop <- 2500 # poppulation at n1
 r <- 0.8 # r is the intrinsic growth rate of the population
 K <- 10000 # K is the environmental carrying capacity for the population
 n <- 12  
 time <- seq(1,n) #make a vector called "time" to stores the time steps 1 to 12
 abundance <- c(2500, 2:12)#Create a vector to store 12 abundance in each time step, the first one is 2500  )
 for(i in 2:12) {
-  tmp <- Pre_AbundanceOfPop + r * Pre_AbundanceOfPop * (K - Pre_AbundanceOfPop) / K
-  Pre_AbundanceOfPop <- tmp
-  abundance[i] <- tmp
+  abundance[i] <- abundance[i - 1] + r * abundance[i - 1] * (K - abundance[i - 1])/K
 }
 abundance 
 
@@ -110,8 +105,8 @@ mydata_1 <- read.csv("CO2_data_cut_paste.csv", stringsAsFactors = FALSE, colClas
 str(mydata_1)
 #2. use for loop to change everything but the year as type numeric
 for(row in 1:nrow(mydata)) {
-  for( col in 2:ncol(mydata))
-    mydata[row, col] <- as.numeric()
+  for(col in 2:ncol(mydata))
+    mydata[row, col] <- as.numeric(mydata[row, col])
 }
 str(mydata)
 
