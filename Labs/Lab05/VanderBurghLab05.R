@@ -1,10 +1,10 @@
 #Part I: Practice some simple conditionals
 #1
-x <- 9
+x <- 4
 if ( x < 5) {
   print("x is smaller than 5")
 } else {
-  print("x is bigger than 5")
+  print("x is bigger or equal to 5")
 }
 
 
@@ -93,13 +93,11 @@ k <- 0.1 		# conversion constant of prey into predators
 
 #2 creates more vectors
 timeVec <- 1:totalGenerations #create a time vector representing time steps from 1 to totalGenerations
-n <- rep(100, totalGenerations)#create a vector to store the values of preps over time, 
+n <- rep(initPrey, totalGenerations)#create a vector to store the values of preps over time, 
 #the initial prep # is 100
-p <- rep(10, totalGenerations)#create a vector to store the values of predators over time
+p <- rep(initPred, totalGenerations)#create a vector to store the values of predators over time
 
 #3 write a loop that implements the calculations. 
-n1 <- initPrey
-p1 <- initPred
 for (t in 2:totalGenerations) {
   n[t] <- n[t-1] + (r * n[t-1]) - (a * n[t-1] * p[t-1])
   p[t] <- p[t-1] + (k * a * n[t-1] * p[t-1]) - (m * p[t-1])
@@ -108,8 +106,7 @@ for (t in 2:totalGenerations) {
 
 #4 add if some if statements to check for negative numbers,
 #then replace the negative value with zero
-n1 <- initPrey
-p1 <- initPred
+
 for (t in 2:totalGenerations) {
   n[t] <- n[t-1] + (r * n[t-1]) - (a * n[t-1] * p[t-1])
   p[t] <- p[t-1] + (k * a * n[t-1] * p[t-1]) - (m * p[t-1])
@@ -122,8 +119,9 @@ for (t in 2:totalGenerations) {
 plot(timeVec, n, main = "Abundances of Prey and Predators Over Time",
                       xlab = "Time",
                       ylab = "Abundances of Prey and Predator")
+lines(timeVec, p)
 
-###not sure how to add predators info into this plot
+
 
 #6 create a matrix of my result named "myResults" with "TimeStep" in first column,
 #"PreyAbundance" in second column, and "PredatorAbundance" in third column
