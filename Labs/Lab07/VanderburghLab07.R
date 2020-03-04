@@ -18,15 +18,14 @@ imageTriangleArea
 # Problem #2 
 # Part2a :Write a function named myAbs() that calculates and returns absolute value
 # when given a number, always return with the absolute value of the number
+
 myAbs <- function(number) {
-  for (i in number) {
-    if (i >= 0) {
-      i <- i
-    } else {i <- -i
-    }
+  if (number > 0) {
+    return(number)
+  } else {(return(-number))
   }
-  return(i)
 }
+
 # Demonstrate my function by using it on 5 & -2.3
 myAbs(5)
 myAbs(-2.3)  
@@ -62,13 +61,46 @@ myFibonacci <- function(a, n) {
 #Test out to see if my function works
 myFibonacci(1, 20)
 
-#if have time, do Bonus 3a and 3b
+# Bonus 3a, make my function work for n=1 and n = 2
+myFibonacci <- function(a, n) {
+  myFibonacciResults <- rep(a, n)
+  if (a == 0) {
+    myFibonacciResults[2] <- 1
+  }
+  if (n == 1) {
+    myFibonacciResults <- 0
+  }
+  if (n == 2) {
+    myFibonacciResults <- c(0, 1)
+  } else {
+  for (i in 3:n) {
+    myFibonacciResults[i] <- myFibonacciResults[i - 2] + myFibonacciResults[i - 1]
+  }
+  return(myFibonacciResults)
+}
+}
+# Test my function, it doesn't work.Not sure why????
+#"Error in myFibonacciResults[i] <- myFibonacciResults[i - 2] + myFibonacciResults[i -  : 
+# replacement has length zero
+myFibonacci(1, 1)
 
+# Bonus 3b make my function check user input
+myFibonacci <- function(a, n) {
+  myFibonacciResults <- rep(a, n)
+  if (a != 0 | a != 1) {
+    stop("The 'a' argument must be 0 or 1")
+  }
+  if (a == 0) {
+    myFibonacciResults[2] <- 1
+  }
+  for (i in 3:n) {
+    myFibonacciResults[i] <- myFibonacciResults[i - 2] + myFibonacciResults[i - 1]
+  }
+  return(myFibonacciResults)
+}
 
-
-
-
-
+myFibonacci(0, 20)
+####it didn't work neither!!!!
 
 
 # Problem #4a: write a function that takes two numbers as its argements and returns the square of the 
