@@ -1,5 +1,6 @@
 #Lba08: Documentation and Metadata
 
+setwd("/Users/caihong/Desktop/EBIO4420/CompBioLabsAndHomework/Labs/Lab08")
 ############################################################################
 # 3b. Use the code from Week4's lab problem #7, turn the logistic growth
 # model code into a function that takes r(the intrinsic growth rate),
@@ -67,7 +68,6 @@ for(i in 2:12) {
 
 mydf <- data.frame(generations, abundance) # create a new dataframe
 
-setwd("/Users/caihong/Desktop/EBIO4420/CompBioLabsAndHomework/Labs/Lab08")
 write.csv(mydf, "/Users/caihong/Desktop/EBIO4420/CompBioLabsAndHomework/Labs/Lab08/logisticDataFrame.csv")
 
 
